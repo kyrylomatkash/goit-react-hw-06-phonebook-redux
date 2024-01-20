@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kyrylomatkash/goit-react-hw-06-phonebook-redux/static/css/main.5c535a38.css",
+    "main.js": "/kyrylomatkash/goit-react-hw-06-phonebook-redux/static/js/main.2a5b1b53.js",
+    "index.html": "/kyrylomatkash/goit-react-hw-06-phonebook-redux/index.html",
+    "main.5c535a38.css.map": "/kyrylomatkash/goit-react-hw-06-phonebook-redux/static/css/main.5c535a38.css.map",
+    "main.2a5b1b53.js.map": "/kyrylomatkash/goit-react-hw-06-phonebook-redux/static/js/main.2a5b1b53.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c535a38.css",
+    "static/js/main.2a5b1b53.js"
+  ]
+}
