@@ -8,13 +8,13 @@ import { editContactAction } from '../redux/contactSlice';
 const EditContact = ({ contact }) => {
   const dispatch = useDispatch();
   // Редагування контакту
-  const handleEdit = () => {
+  const handleEditContact = () => {
     dispatch(editContactAction(contact));
   };
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleEdit}>
+      <Button variant="outlined" onClick={handleEditContact}>
         Edit
       </Button>
       <EditContactModal contact={contact} />
