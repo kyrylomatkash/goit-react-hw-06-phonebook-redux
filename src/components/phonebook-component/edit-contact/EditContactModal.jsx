@@ -8,7 +8,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
-import { StyledForm, StyledTextField } from './editcontactmodalstyles'; // Import your styled components
+import { StyledForm, StyledTextField } from './editcontactmodalstyles';
 // Основна функція компоненту
 const EditContactModal = ({ contact, isOpen, onClose, onSave }) => {
   const [name, setName] = useState(contact.name);

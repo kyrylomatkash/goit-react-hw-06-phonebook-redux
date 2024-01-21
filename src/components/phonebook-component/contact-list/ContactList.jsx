@@ -70,7 +70,7 @@ const ContactList = () => {
       contact =>
         contact.name.toLowerCase() === name.toLowerCase() && contact.id !== id
     );
-
+    // Відслідковування вже існуючого контакту у списку
     if (isContactExists) {
       dispatch(setContactExistsModalOpen(true));
     } else {
@@ -78,15 +78,15 @@ const ContactList = () => {
       dispatch(setEditContact(null));
     }
   };
-
+  // Закриття модального вікна редагування контакту
   const handleCloseEditForm = () => {
     dispatch(setEditContact(null));
   };
-
+  // Відкриття модального вікна видалення усіх контактів
   const handleOpenDeleteAllModal = () => {
     dispatch(setDeleteAllModalOpen(true));
   };
-
+  // Закриття модального вікна видалення усіх контактів
   const handleCloseDeleteAllModal = () => {
     dispatch(setDeleteAllModalOpen(false));
   };

@@ -31,7 +31,7 @@ const ContactForm = () => {
       toast.error('Please fill in all fields.');
       return;
     }
-
+    // Відслідковування вже існуючого контакту у списку
     const isContactExists = contacts.some(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );

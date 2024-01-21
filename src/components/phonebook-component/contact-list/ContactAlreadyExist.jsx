@@ -15,7 +15,7 @@ const ContactExistsModal = ({ isOpen, onClose }) => {
       <DialogTitle>Contact Already Exists</DialogTitle>
       <DialogContent>
         <Typography variant="body1">
-          This contact already exists. Please choose a different name.
+          This contact is already exists. Please choose a different name.
         </Typography>
       </DialogContent>
       <DialogActions>
