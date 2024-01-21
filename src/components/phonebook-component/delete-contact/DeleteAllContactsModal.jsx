@@ -8,6 +8,7 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  Typography,
 } from '@mui/material';
 import { deleteAllContactsAction } from '../redux/contactSlice';
 // Основна функція компоненту
@@ -24,10 +25,10 @@ const DeleteAllContactsModal = ({ isOpen, onClose }) => {
     <Dialog open={isOpen} onClose={onClose}>
       <DialogTitle>Confirmation</DialogTitle>
       <DialogContent>
-        <p>
+        <Typography>
           Are you sure you want to clear the phonebook history? This action
-          cannot be undone.
-        </p>
+          can't be undone.
+        </Typography>
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose} color="primary">

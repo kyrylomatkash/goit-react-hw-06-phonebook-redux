@@ -7,7 +7,6 @@ import { AppContainer, SearchInput, Heading } from './filterstyles';
 const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(state => state.filter.filter);
-
   const handleChange = e => {
     dispatch(filterAction(e.target.value));
   };

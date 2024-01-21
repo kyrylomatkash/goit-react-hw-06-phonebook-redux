@@ -1,6 +1,6 @@
 // Імпорт компонентів і стилів
 import React from 'react';
-import { AppContainer } from './appstyles'; // Імпорт стилів
+import { AppContainer } from './appstyles';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ContactList from './phonebook-component/contact-list/ContactList';

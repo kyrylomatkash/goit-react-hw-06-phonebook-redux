@@ -22,9 +22,7 @@ const DeleteContactModal = ({ open, message, onConfirm, onCancel }) => {
       onClose={onCancel}
       aria-labelledby="confirmation-dialog"
     >
-      <DialogTitle id="confirmation-dialog-title">
-        Confirm Contact Deletion
-      </DialogTitle>
+      <DialogTitle id="confirmation-dialog-title">Delete Contact</DialogTitle>
       <DialogContent>
         <DialogContentText>{message}</DialogContentText>
       </DialogContent>
@@ -33,7 +31,7 @@ const DeleteContactModal = ({ open, message, onConfirm, onCancel }) => {
           Cancel
         </Button>
         <Button onClick={handleConfirm} color="primary" autoFocus>
-          Confirm Deletion
+          Delete
         </Button>
       </DialogActions>
     </Dialog>

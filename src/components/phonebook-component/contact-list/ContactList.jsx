@@ -6,6 +6,7 @@ import EditContactModal from '../edit-contact/EditContactModal';
 import DeleteAllContactsModal from '../delete-contact/DeleteAllContactsModal';
 import ConfirmationDialog from '../delete-contact/DeleteConfirmationModal';
 import ContactExistsModal from './ContactAlreadyExist';
+import { Typography } from '@mui/material';
 import {
   setEditContact,
   setDeleteAllModalOpen,
@@ -97,7 +98,9 @@ const ContactList = () => {
           <StyledList>
             {filteredContacts.map(contact => (
               <StyledListItem key={contact.id}>
-                {contact.name} ({contact.number})
+                <Typography>
+                  {contact.name} - {contact.number}
+                </Typography>
                 <EditButton variant="text" onClick={() => handleEdit(contact)}>
                   Edit
                 </EditButton>

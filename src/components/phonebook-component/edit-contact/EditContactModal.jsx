@@ -34,7 +34,7 @@ const EditContactModal = ({ contact, isOpen, onClose, onSave }) => {
       <DialogTitle>Edit Contact</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          Edit the details of the contact below.
+          Edit the details of the contact {name}.
         </DialogContentText>
         <StyledForm>
           <StyledTextField
@@ -58,7 +58,7 @@ const EditContactModal = ({ contact, isOpen, onClose, onSave }) => {
           Cancel
         </Button>
         <Button onClick={handleSave} color="primary">
-          Save Changes
+          Save
         </Button>
       </DialogActions>
       <ToastContainer autoClose={3000} position="bottom-right" />

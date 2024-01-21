@@ -1,4 +1,3 @@
-// FilterStyles.js
 import { styled } from '@mui/system';
 import { Container, Typography, Input } from '@mui/material';
 
