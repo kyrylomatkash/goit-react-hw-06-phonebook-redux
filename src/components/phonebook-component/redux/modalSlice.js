@@ -12,7 +12,7 @@ const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    // Модальне вікно редагування
+    // Модальне вікно редагування контакту
     setEditContact: (state, action) => {
       state.editContact = action.payload;
     },

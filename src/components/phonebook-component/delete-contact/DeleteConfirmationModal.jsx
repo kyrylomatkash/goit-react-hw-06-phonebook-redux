@@ -15,11 +15,14 @@ const DeleteContactModal = ({ open, message, onConfirm, onCancel }) => {
     onConfirm();
     toast.success('Contact deleted successfully.');
   };
-
+  const handleCancel = () => {
+    onCancel();
+    toast.info('Deletion canceled.');
+  };
   return (
     <Dialog
       open={open}
-      onClose={onCancel}
+      onClose={handleCancel}
       aria-labelledby="confirmation-dialog"
     >
       <DialogTitle id="confirmation-dialog-title">Delete Contact</DialogTitle>
@@ -27,7 +30,7 @@ const DeleteContactModal = ({ open, message, onConfirm, onCancel }) => {
         <DialogContentText>{message}</DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onCancel} color="primary">
+        <Button onClick={handleCancel} color="primary">
           Cancel
         </Button>
         <Button onClick={handleConfirm} color="primary" autoFocus>
