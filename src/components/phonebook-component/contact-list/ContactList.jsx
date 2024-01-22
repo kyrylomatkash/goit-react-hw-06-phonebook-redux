@@ -1,19 +1,16 @@
 // Імпорт бібліотек,компонентів,логіки Redux
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContactAction, editContactAction } from '../redux/contactSlice';
+import {
+  deleteContactAction,
+  editContactAction,
+} from '../../../redux/contactSlice';
 import EditContactModal from '../edit-contact/EditContactModal';
 import DeleteAllContactsModal from '../delete-contact/DeleteAllContactsModal';
 import ConfirmationDialog from '../delete-contact/DeleteConfirmationModal';
 import ContactExistsModal from './ContactAlreadyExist';
 import { Typography } from '@mui/material';
-import {
-  setEditContact,
-  setDeleteAllModalOpen,
-  setDeleteConfirmationOpen,
-  setContactToDelete,
-  setContactExistsModalOpen,
-} from '../redux/modalSlice';
+
 // Імпорт стилів
 import {
   ContactListContainer,
@@ -29,40 +26,37 @@ import {
 const ContactList = () => {
   const contacts = useSelector(state => state.contacts.contacts);
   const filter = useSelector(state => state.filter.filter);
-  const modal = useSelector(state => state.modal);
   const dispatch = useDispatch();
   // Стейти модальних вікон
-  const {
-    editContact,
-    deleteAllModalOpen,
-    deleteConfirmationOpen,
-    contactToDelete,
-    contactExistsModalOpen,
-  } = modal;
-  // Фільт по імені
+  const [editContact, setEditContact] = useState(null);
+  const [deleteAllModalOpen, setDeleteAllModalOpen] = useState(false);
+  const [deleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
+  const [contactToDelete, setContactToDelete] = useState(null);
+  const [contactExistsModalOpen, setContactExistsModalOpen] = useState(false);
+  // Фільтр по імені
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
   // Редагування контакту
   const handleEdit = contact => {
-    dispatch(setEditContact(contact));
+    setEditContact(contact);
   };
   // Видалення контакту
   const handleDelete = contact => {
-    dispatch(setContactToDelete(contact));
-    dispatch(setDeleteConfirmationOpen(true));
+    setContactToDelete(contact);
+    setDeleteConfirmationOpen(true);
   };
   // Підтвердження видалення
   const confirmDelete = () => {
     if (contactToDelete) {
       dispatch(deleteContactAction(contactToDelete.id));
-      dispatch(setDeleteConfirmationOpen(false));
+      setDeleteConfirmationOpen(false);
     }
   };
   // Відміна видалення
   const cancelDelete = () => {
-    dispatch(setContactToDelete(null));
-    dispatch(setDeleteConfirmationOpen(false));
+    setContactToDelete(null);
+    setDeleteConfirmationOpen(false);
   };
   // Збереження зміненого контакту
   const handleSaveEdit = ({ id, name, number }) => {
@@ -72,23 +66,23 @@ const ContactList = () => {
     );
     // Відслідковування вже існуючого контакту у списку
     if (isContactExists) {
-      dispatch(setContactExistsModalOpen(true));
+      setContactExistsModalOpen(true);
     } else {
       dispatch(editContactAction({ id, name, number }));
-      dispatch(setEditContact(null));
+      setEditContact(null);
     }
   };
   // Закриття модального вікна редагування контакту
   const handleCloseEditForm = () => {
-    dispatch(setEditContact(null));
+    setEditContact(null);
   };
   // Відкриття модального вікна видалення усіх контактів
   const handleOpenDeleteAllModal = () => {
-    dispatch(setDeleteAllModalOpen(true));
+    setDeleteAllModalOpen(true);
   };
   // Закриття модального вікна видалення усіх контактів
   const handleCloseDeleteAllModal = () => {
-    dispatch(setDeleteAllModalOpen(false));
+    setDeleteAllModalOpen(false);
   };
 
   return (
@@ -148,7 +142,7 @@ const ContactList = () => {
       {contactExistsModalOpen && (
         <ContactExistsModal
           isOpen={contactExistsModalOpen}
-          onClose={() => dispatch(setContactExistsModalOpen(false))}
+          onClose={() => setContactExistsModalOpen(false)}
         />
       )}
     </ContactListContainer>

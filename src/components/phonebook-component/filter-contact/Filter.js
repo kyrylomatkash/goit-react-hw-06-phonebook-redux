@@ -1,7 +1,7 @@
 // Імпорт бібліотек,стилів і логіки Redux
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterAction } from '../redux/filterSlice';
+import { filterAction } from '../../../redux/filterSlice';
 import { AppContainer, SearchInput, Heading } from './filterstyles';
 // Основна функція компоненту
 const Filter = () => {

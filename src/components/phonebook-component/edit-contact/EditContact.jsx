@@ -3,7 +3,7 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import EditContactModal from './EditContactModal';
 import { useDispatch } from 'react-redux';
-import { editContactAction } from '../redux/contactSlice';
+import { editContactAction } from '../../../redux/contactSlice';
 // Основна функція компоненту
 const EditContact = ({ contact }) => {
   const dispatch = useDispatch();

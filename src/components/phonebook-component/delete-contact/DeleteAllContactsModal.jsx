@@ -10,7 +10,7 @@ import {
   DialogTitle,
   Typography,
 } from '@mui/material';
-import { deleteAllContactsAction } from '../redux/contactSlice';
+import { deleteAllContactsAction } from '../../../redux/contactSlice';
 // Основна функція компоненту
 const DeleteAllContactsModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();

@@ -2,7 +2,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { contactsReducer } from './contactSlice';
 import { filterReducer } from './filterSlice';
-import modalReducer from './modalSlice';
 import {
   persistStore,
   persistReducer,
@@ -25,7 +24,6 @@ const persistedReducer = persistReducer(persistConfig, contactsReducer);
 const reducer = {
   contacts: persistedReducer,
   filter: filterReducer,
-  modal: modalReducer,
 };
 // Експорт
 export const store = configureStore({

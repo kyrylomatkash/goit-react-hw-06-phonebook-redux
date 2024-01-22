@@ -1,8 +1,7 @@
 // Імпорт компонентів,бібліотек і Redux логіки
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContactAction } from '../redux/contactSlice';
-import { setContactExistsModalOpen } from '../redux/modalSlice';
+import { addContactAction } from '../../../redux/contactSlice';
 import ContactExistsModal from '../contact-list/ContactAlreadyExist';
 import { toast } from 'react-toastify';
 // Імпорт стилів
@@ -18,13 +17,10 @@ import {
 const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts.contacts);
-  const contactExistsModalOpen = useSelector(
-    state => state.modal.contactExistsModalOpen
-  );
 
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
+  const [contactExistsModalOpen, setContactExistsModalOpen] = useState(false);
   // Додавання контакту
   const handleAddContact = () => {
     if (!name.trim() || !number.trim()) {
@@ -37,7 +33,7 @@ const ContactForm = () => {
     );
 
     if (isContactExists) {
-      dispatch(setContactExistsModalOpen(true));
+      setContactExistsModalOpen(true);
     } else {
       dispatch(addContactAction({ name, number }));
       toast.success('Contact added successfully.');
@@ -68,7 +64,7 @@ const ContactForm = () => {
       </StyledForm>
       <ContactExistsModal
         isOpen={contactExistsModalOpen}
-        onClose={() => dispatch(setContactExistsModalOpen(false))}
+        onClose={() => setContactExistsModalOpen(false)}
       />
     </AppContainer>
   );
